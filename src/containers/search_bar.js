@@ -13,14 +13,22 @@ export default class SearchBar extends Component {
 	}
 
 	onInputChange(event) {
-		console.log(event.target.value);
+		// console.log(event.target.value);
 		this.setState({ term: event.target.value });
+	}
+
+	onFormSubmit(event) {
+		event.preventDefault(); // when a form element child is focused, pressing enter
+														// or submit will automatically tell the browser to
+														// submit the contents of the form. this is
+														// a normal, non-react behavior, and this line tells
+														// the browser to not automatically do so.
 	}
 
 	render() {
 		return (
-			// the lines below make our input form into a 'controlled field',
-			// which is form element where the value of the input is set
+			// the lines inside <input> below make our input form into a 'controlled
+			// field', which is form element where the value of the input is set
 			// by the state of our component, not the other way around.
 			// so when we click the button below it will draw its input
 			// from state.whatever, instead of directly from <input />.
@@ -33,7 +41,7 @@ export default class SearchBar extends Component {
 			// undefined.' So if we are passing around a callback function that has a
 			// reference to 'this', we have to bind the callback to the proper context.
 
-			<form className='input-group'>
+			<form onSubmit={this.onFormSubmit} className='input-group'>
 
 			<input
 				placeholder='Get a five-day forecast in your favorite cities'
