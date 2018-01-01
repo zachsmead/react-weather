@@ -17,7 +17,7 @@ class SearchBar extends Component {
 	}
 
 	onInputChange(event) {
-		console.log(event.target.value);
+		// console.log(event.target.value);
 		this.setState({ term: event.target.value });
 
 	}
@@ -29,7 +29,6 @@ class SearchBar extends Component {
 														// a normal, non-react behavior, and this line tells
 														// the browser to not automatically do so.
 		this.props.fetchWeather(this.state.term);
-		console.log(this.state.term);
 		this.setState({ term: '' });
 	}
 
