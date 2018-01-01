@@ -1,3 +1,6 @@
+// SearchBar is a container - it needs to be able to modify application state
+// by dispatching actions.
+
 import React, { Component } from 'react';
 
 export default class SearchBar extends Component {
